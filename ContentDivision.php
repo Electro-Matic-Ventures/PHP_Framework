@@ -9,6 +9,7 @@
      * @property mixed $contained
      * @method draw
      */
+    
     class ContentDivision extends HTMLElement{
 
         public $attributes;
