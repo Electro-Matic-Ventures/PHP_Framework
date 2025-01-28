@@ -1,6 +1,18 @@
 <?php
     require_once 'DBConnection.php';
 
+    /**
+     * DBContact
+     * @property int $id
+     * @property string $name
+     * @property int $phone_number
+     * @property string $email
+     * @method loadById
+     * @method save
+     * @method delete
+     * @method getAllContacts   
+    */
+
     class DBContact
     {
         public $id;
@@ -8,6 +20,15 @@
         public $phone_number;
         public $email;
 
+
+        /**
+         * Method is used to load a new contact.
+         * If ID argument is given, it will call 
+         * loadById to load the information of the 
+         * contact who's ID matches with the given 
+         * ID. If none is given, then it will default 
+         * to making a new contact.
+         */
         public function __construct($id = null)
         {
             if ($id) {
@@ -15,6 +36,11 @@
             }
         }
 
+
+        /**
+         * Method loads contact into DBContact object
+         * according to the given ID.
+         */
         public function loadById($id)
         {
             $conn = new DBConnection();
@@ -31,6 +57,10 @@
             $stmt->close();
         }
 
+        /**
+         * Method saves current DBContact object into
+         * database as a contact.
+         */
         public function save()
         {
             $conn = new DBConnection();
@@ -48,6 +78,10 @@
             $stmt->close();
         }
 
+        /**
+         * Method deletes contact from database
+         * according to given ID.
+         */
         public function delete()
         {
             $conn = new DBConnection();
@@ -59,6 +93,10 @@
             }
         }
 
+        /**
+         * Method gets all contacts currently 
+         * in the database.
+         */
         public static function getAllContacts()
         {
             $conn = new DBConnection();
