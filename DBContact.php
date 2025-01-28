@@ -65,7 +65,7 @@
         {
             $conn = new DBConnection();
             if ($this->id) {
-                $stmt = $conn->mysqli->prepare("UPDATE contacts SET name = ?, phone_number = ?, email = ? WHERE id = ?");
+                $stmt = $conn->mysqli->prepare("UPDATE contacts SET name=?, phone_number=?, email=? WHERE id=?");
                 $stmt->bind_param("sssi", $this->name, $this->phone_number, $this->email, $this->id);
             } else {
                 $stmt = $conn->mysqli->prepare("INSERT INTO contacts (name, phone_number, email) VALUES (?, ?, ?)");
@@ -77,6 +77,7 @@
             }
             $stmt->close();
         }
+        
 
         /**
          * Method deletes contact from database
