@@ -9,7 +9,7 @@
             $HOSTNAME = 'localhost';
             $USERNAME = "myuser";
             $PASSWORD = "test";
-	    $DB_NAME = "contacts_db";
+	        $DB_NAME = "contacts_db";
             $this->mysqli = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DB_NAME);
 
             if ($this->mysqli->connect_error) {

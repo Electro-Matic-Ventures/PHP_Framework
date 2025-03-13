@@ -1,7 +1,15 @@
 <?php
+require_once 'PHPClasses/PHPGateway/PageContactsGetData.php';
+require_once 'PHPClasses/PHPGateway/PageContactsTable.php';
+require_once 'PHPClasses/PHPGateway/PageContactsSetData.php';
 
-require_once 'PageContactsTable.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-$page = new PageContactsTable();
-echo $page->render();
+	PageContactsSetData::go($_POST);
+
+}
+
+$contacts = PageContactsGetData::get();
+
+echo PageContactsTable::table($contacts);
 ?>
